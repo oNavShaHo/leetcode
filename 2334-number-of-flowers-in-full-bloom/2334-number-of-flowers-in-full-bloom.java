@@ -3,7 +3,7 @@ class Solution {
         int n = persons.length;
         int[] result = new int[n];
         
-        // Create a TreeMap to track flower intervals and their frequencies.
+       
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
         for (int i = 0; i < flowers.length; i++) {
             // Increment the start time frequency.
