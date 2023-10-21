@@ -6,8 +6,8 @@
 var searchRange = function(nums, target) {
     
 
-const firstIndex = nums.indexOf(target);
-const lastIndex = nums.lastIndexOf(target);
+let firstIndex = nums.indexOf(target);
+let lastIndex = nums.lastIndexOf(target);
     
 return [firstIndex, lastIndex];
 
