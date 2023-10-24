@@ -11,7 +11,7 @@
  * @return {number[]}
  */
 var largestValues = function(root) {
-     var result=[];
+     let result=[];
      help(0,result,root);
 
      return result;
