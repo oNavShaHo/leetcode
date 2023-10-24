@@ -20,11 +20,12 @@ var largestValues = function(root) {
 function help(i, result, root) {
     if (root == null) return;
 
-    // If the result array doesn't have an element for this level, add one.
+    
     if (i >= result.length) {
         result.push(root.val);
     } else {
-        // Update the largest value for this level.
+       
+
         result[i] = Math.max(result[i], root.val);
     }
 
