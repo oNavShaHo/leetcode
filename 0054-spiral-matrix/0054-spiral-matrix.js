@@ -75,7 +75,7 @@ var spiralOrder = function(matrix) {
             } else {
                 if (neighbors.up) {
                     rowIndex = neighbors.up.rowIndex;
-                   // columnIndex = neighbors.up.columnIndex;
+                   columnIndex = neighbors.up.columnIndex;
                 } else {
                     rowIndex = neighbors.down.rowIndex;
                     columnIndex = neighbors.down.columnIndex;
