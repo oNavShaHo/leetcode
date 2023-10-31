@@ -8,7 +8,7 @@ var majorityElement = function(nums) {
     const n=nums.length/2;
     for(let i of nums)
     {
-        if(obj[i]==undefined)
+        if(obj[i]===undefined)
         obj[i]=1;
         else 
         obj[i]++;
