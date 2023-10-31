@@ -15,7 +15,7 @@ var majorityElement = function(nums) {
         if(obj[i]>=n)
         return i;
     }
-    console.log(obj);
+ //   console.log(obj);
 
     return 999;
 };
