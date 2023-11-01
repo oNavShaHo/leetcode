@@ -1,30 +1,37 @@
-var findMode = function(root) {
-    const counts = {};
-    let maxCount = 0;
-    const modes = [];
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val === undefined ? 0 : val);
+ *     this.left = (left === undefined ? null : left);
+ *     this.right = (right === undefined ? null : right);
+ * }
+ */
 
-    const inorder = function(node) {
-        if (!node) {
-            return;
-        }
+function findMode(root) {
+  const obj = {};
+  let max = 0;
+  let a = [];
 
-        inorder(node.left);
+  function help(node) {
+    if (!node) return;
 
-        const count = (counts[node.val] || 0) + 1;
-        counts[node.val] = count;
+    if (!obj[node.val]) obj[node.val] = 1;
+    else obj[node.val]++;
 
-        if (count > maxCount) {
-            maxCount = count;
-            modes.length = 0;
-            modes.push(node.val);
-        } else if (count === maxCount) {
-            modes.push(node.val);
-        }
+    if (obj[node.val] > max) {
+      max = obj[node.val];
+      a = [node.val];
+    } else if (obj[node.val] === max) {
+      a.push(node.val);
+    }
 
-        inorder(node.right);
-    };
+    help(node.left);
+    help(node.right);
+  }
 
-    inorder(root);
+  help(root);
 
-    return modes;    
-};
+  const uniqueModes = a.filter(val => obj[val] === max);
+
+  return uniqueModes;
+}
