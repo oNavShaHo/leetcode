@@ -1,37 +1,57 @@
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
- *     this.val = (val === undefined ? 0 : val);
- *     this.left = (left === undefined ? null : left);
- *     this.right = (right === undefined ? null : right);
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
  * }
  */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var findMode = function(root) {
+    let obj={};
+    let a=[];
+    let max=-999;
 
-function findMode(root) {
-  const obj = {};
-  let max = 0;
-  let a = [];
 
-  function help(node) {
-    if (!node) return;
-
-    if (!obj[node.val]) obj[node.val] = 1;
-    else obj[node.val]++;
-
-    if (obj[node.val] > max) {
-      max = obj[node.val];
-      a = [node.val];
-    } else if (obj[node.val] === max) {
-      a.push(node.val);
+function help(root)
+{   
+    if(!root)
+    return;
+ 
+    if(!obj[root.val])
+    {
+        obj[root.val]=1;
+       
+    }
+    else 
+    {
+        obj[root.val]++;
+     
     }
 
-    help(node.left);
-    help(node.right);
-  }
+    if(obj[root.val]>max)
+    {
+        max=obj[root.val];
+        a=[root.val]; 
+    }
+    else if(obj[root.val]==max) 
+    {
+        a.push(root.val);
+    }
 
-  help(root);
+    help(root.left);
+    help(root.right);
 
-  const uniqueModes = a.filter(val => obj[val] === max);
+    
+};
 
-  return uniqueModes;
+help(root);
+
+console.log(obj);
+ const u = a.filter(val => obj[val] === max);
+return u;
+
 }
