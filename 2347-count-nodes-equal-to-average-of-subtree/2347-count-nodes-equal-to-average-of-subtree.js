@@ -45,8 +45,8 @@ function node2visit(root)
         if(!root)
         return [0,0];
          
-        const left=node2visit(root.left);
-        const right =node2visit(root.right);
+        let left=node2visit(root.left);
+        let right =node2visit(root.right);
 
         let sum=root.val+left[0]+right[0];
         let count=1+left[1]+right[1];
