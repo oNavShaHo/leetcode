@@ -5,7 +5,7 @@
  */
 var buildArray = function(target, n) {
     let ans=[];
-    let a=[];
+   
     
     
     
